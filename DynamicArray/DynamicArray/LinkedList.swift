@@ -5,6 +5,11 @@
 //  Created by 程昆 on 2021/1/4.
 //
 
+fileprivate struct Constant {
+    static let defautCapacity = 10;
+    static let notFound = -1;
+}
+
 protocol LinkedList {
     associatedtype E:Equatable
     
@@ -24,10 +29,6 @@ protocol LinkedList {
 }
 
 extension LinkedList {
-//     fileprivate var size: Int  {
-//         0
-//     }
-    
      fileprivate func cheackInBounds(at index: Int) -> Bool {
            if  index >= size {
                return false;
@@ -47,6 +48,10 @@ extension LinkedList {
 extension LinkedList {
     typealias Element = E
     
+    static var notFound:Int {
+        Constant.notFound
+    }
+    
     func isEmpty() -> Bool {
         return size == 0
     }
@@ -58,23 +63,18 @@ extension LinkedList {
     func add(element: Element?)  {
         addElement(at: size, element: element)
     }
-}
-
-
-fileprivate struct Constant {
-    static let defautCapacity = 10;
-    static let notFound = -1;
+    
+    subscript(index: Int) -> Element?  {
+        get {
+            return getElement(at: index)
+        }
+        set {
+            setElement(at: index, element:newValue)
+        }
+    }
 }
 
 class DynamicArray<Element:Equatable> : LinkedList {
-    enum ErrorType: Error {
-        case message(_:String)
-    }
-    
-    static var notFound:Int {
-        Constant.notFound
-    }
-    
     private static var defautCapacity:Int {
         Constant.defautCapacity
     }
@@ -113,15 +113,6 @@ class DynamicArray<Element:Equatable> : LinkedList {
         }
         
         return elements[index];
-    }
-    
-    subscript(index: Int) -> Element?  {
-        get {
-            return getElement(at: index)
-        }
-        set {
-            setElement(at: index, element:newValue)
-        }
     }
     
     func setElement(at index: Int, element: Element?) {
