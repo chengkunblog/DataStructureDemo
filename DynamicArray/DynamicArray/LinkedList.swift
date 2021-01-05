@@ -24,6 +24,10 @@ protocol LinkedList {
 }
 
 extension LinkedList {
+//     fileprivate var size: Int  {
+//         0
+//     }
+    
      fileprivate func cheackInBounds(at index: Int) -> Bool {
            if  index >= size {
                return false;
@@ -43,9 +47,9 @@ extension LinkedList {
 extension LinkedList {
     typealias Element = E
     
-//    func isEmpty() -> Bool {
-//        return size == 0
-//    }
+    func isEmpty() -> Bool {
+        return size == 0
+    }
     
     func contains(element: Element) -> Bool {
         return index(of: element) != Self.notFound
@@ -88,18 +92,6 @@ class DynamicArray<Element:Equatable> : LinkedList {
             elements.initialize(repeating: nil, count: capacity)
         }
     }
-    
-    func isEmpty() -> Bool {
-        return size == 0
-    }
-    
-//    func contains(element: Element) -> Bool {
-//        return index(of: element) != Self.notFound
-//    }
-    
-//    func add(element: Element?)  {
-//        addElement(at: size, element: element)
-//    }
     
     func addElement(at index: Int, element: Element?) {
         guard cheackAddInBounds(at: index) else {
@@ -171,16 +163,7 @@ class DynamicArray<Element:Equatable> : LinkedList {
         }
         size = 0
     }
-    
-//    private func cheackInBounds(at index: Int) -> Bool {
-//        if  index >= size {
-//            return false;
-//        }
-//        
-//        return true;
-//    }
-    
-    
+
     private func ensureCapacity(capacity: Int)  {
         if capacity > self.capacity {
             let oldCapacity = self.capacity
