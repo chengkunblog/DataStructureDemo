@@ -5,15 +5,21 @@
 //  Created by 程昆 on 2021/1/4.
 //
 
+import Foundation
+
 fileprivate struct Constant {
     static let defautCapacity = 10;
     static let notFound = -1;
 }
 
+fileprivate struct AssociatedKeys {
+        static var sizeKey = "size"
+}
+
 protocol LinkedList {
     associatedtype E:Equatable
     
-    var size: Int { get }
+    var size: Int {get}
     static var notFound:Int {get}
     
     func isEmpty() -> Bool
@@ -28,28 +34,19 @@ protocol LinkedList {
     func clear()
 }
 
-extension LinkedList {
-     fileprivate func cheackInBounds(at index: Int) -> Bool {
-           if  index >= size {
-               return false;
-           }
-           return true;
-     }
+class AbstractLinkedList<Element:Equatable>: LinkedList {
+    typealias E = Element
     
-     fileprivate func cheackAddInBounds(at index: Int) -> Bool {
-        if  index > size {
-            return false;
-        }
-        
-        return true;
-     }
-}
-
-extension LinkedList {
-    typealias Element = E
+    fileprivate(set) var size = 0;
     
     static var notFound:Int {
         Constant.notFound
+    }
+    
+    init() {
+        if type(of: self) == AbstractLinkedList.self {
+            fatalError("不能直接使用AbstractLinkedList抽象类,请实例化子类")
+        }
     }
     
     func isEmpty() -> Bool {
@@ -72,14 +69,57 @@ extension LinkedList {
             setElement(at: index, element:newValue)
         }
     }
+    
+    func addElement(at index: Int, element: Element?) {
+        fatalError("必须重写\(#function)")
+    }
+    
+    func getElement(at index: Int) -> Element? {
+        fatalError("必须重写\(#function)")
+    }
+    
+    func setElement(at index: Int, element: Element?) {
+        fatalError("必须重写\(#function)")
+    }
+    
+    func remove(at index: Int) -> Element? {
+        fatalError("必须重写\(#function)")
+    }
+    
+    func index(of element: Element) -> Int {
+        fatalError("必须重写\(#function)")
+    }
+    
+    func clear() {
+        fatalError("必须重写\(#function)")
+    }
 }
 
-class DynamicArray<Element:Equatable> : LinkedList {
+extension AbstractLinkedList {
+     fileprivate func cheackInBounds(at index: Int) -> Bool {
+           if  index >= size {
+               return false;
+           }
+           return true;
+     }
+    
+     fileprivate func cheackAddInBounds(at index: Int) -> Bool {
+        if  index > size {
+            return false;
+        }
+        
+        return true;
+     }
+}
+
+
+class DynamicArray<Element: Equatable>: AbstractLinkedList<Element>  {
+    typealias E = Element
+    
     private static var defautCapacity:Int {
         Constant.defautCapacity
     }
     
-    private(set) var size = 0;
     private(set) var capacity = DynamicArray.defautCapacity;
     private var elements = {
         return UnsafeMutablePointer<Element?>.allocate(capacity: DynamicArray.defautCapacity);
@@ -93,7 +133,7 @@ class DynamicArray<Element:Equatable> : LinkedList {
         }
     }
     
-    func addElement(at index: Int, element: Element?) {
+   override func addElement(at index: Int, element: Element?) {
         guard cheackAddInBounds(at: index) else {
             fatalError("size = \(size),index = \(index),越界访问")
         }
@@ -107,7 +147,7 @@ class DynamicArray<Element:Equatable> : LinkedList {
         size += 1
     }
     
-    func getElement(at index: Int) -> Element? {
+    override func getElement(at index: Int) -> Element? {
         guard cheackInBounds(at: index) else {
             fatalError("size = \(size),index = \(index),越界访问")
         }
@@ -115,7 +155,7 @@ class DynamicArray<Element:Equatable> : LinkedList {
         return elements[index];
     }
     
-    func setElement(at index: Int, element: Element?) {
+    override func setElement(at index: Int, element: Element?) {
         guard cheackInBounds(at: index) else {
             fatalError("size = \(size),index = \(index),越界访问")
         }
@@ -123,7 +163,7 @@ class DynamicArray<Element:Equatable> : LinkedList {
         elements[index] = element
     }
     
-    func remove(at index: Int) -> Element? {
+    override func remove(at index: Int) -> Element? {
         guard cheackInBounds(at: index) else {
             fatalError("size = \(size),index = \(index),越界访问")
         }
@@ -138,7 +178,7 @@ class DynamicArray<Element:Equatable> : LinkedList {
         return oldElement
     }
     
-    func index(of element: Element) -> Int {
+    override func index(of element: Element) -> Int {
         for index in (0..<size) {
             if elements[index] == element {
                 return index
@@ -148,7 +188,7 @@ class DynamicArray<Element:Equatable> : LinkedList {
         return Self.notFound
     }
     
-    func clear() {
+    override func clear() {
         for index in 0..<size {
             elements[index] = nil
         }

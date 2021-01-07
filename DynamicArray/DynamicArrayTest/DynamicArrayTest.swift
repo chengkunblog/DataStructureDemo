@@ -41,7 +41,7 @@ class DynamicArrayTest: XCTestCase {
     }
 
     func testExample1() throws {
-        var dynamicArray = DynamicArray<Int>();
+        let dynamicArray = DynamicArray<Int>();
         dynamicArray.add(element: 1)
         dynamicArray.add(element: 2)
         dynamicArray.add(element: 3)
