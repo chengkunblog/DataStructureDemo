@@ -272,11 +272,8 @@ class SingleLinkedList<Element: Equatable>: AbstractLinkedList<Element> {
     }
     
     override func setElement(at index: Int, element: Element?) {
-        guard cheackInBounds(at: index) else {
-            fatalError("size = \(size),index = \(index),越界访问")
-        }
-        
-       
+        let node  = getNode(at: index)
+        node.element = element
     }
     
     override func remove(at index: Int) -> Element? {
@@ -310,7 +307,7 @@ class SingleLinkedList<Element: Equatable>: AbstractLinkedList<Element> {
         }
         
         var node = self.first
-        for _ in 1..<size {
+        for _ in 0..<index {
             node = node?.next
         }
         return node!

@@ -26,6 +26,21 @@ class SingleLinkedListTest: XCTestCase {
         list.add(element: nil)
         assert(list.size == 5)
         assert(list.description == "SingleLinkedList[0->1->2->3->nil->]")
+        
+        assert(list[3] == 3)
+        assert(list[4] == nil)
+        
+        list[0] = 6
+        assert(list[0] == 6)
+        
+        list.setElement(at: 0, element: 7)
+        assert(list[0] == 7)
+        assert(list.getElement(at: 0) == 7)
+        
+        list.setElement(at: 4, element: 8)
+        assert(list[4] == 8)
+        assert(list.getElement(at: 4) == 8)
+        
         print(list)
         
     }
