@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43788A5325A84DE400848713 /* SingleLinkedListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43788A5225A84DE400848713 /* SingleLinkedListTest.swift */; };
+		43788A5825A84DFC00848713 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8CD2025A2FF3B0085CD51 /* LinkedList.swift */; };
 		43AF2031259EF19F00653BD9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AF2030259EF19F00653BD9 /* main.swift */; };
-		43AF203A259EF1CE00653BD9 /* DynamicArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AF2039259EF1CE00653BD9 /* DynamicArray.swift */; };
 		43E8CD1625A2F01A0085CD51 /* DynamicArrayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8CD1525A2F01A0085CD51 /* DynamicArrayTest.swift */; };
-		43E8CD1D25A2F3220085CD51 /* DynamicArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AF2039259EF1CE00653BD9 /* DynamicArray.swift */; };
-		43E8CD1F25A2FD2B0085CD51 /* SingleLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8CD1E25A2FD2B0085CD51 /* SingleLinkedList.swift */; };
 		43E8CD2125A2FF3B0085CD51 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8CD2025A2FF3B0085CD51 /* LinkedList.swift */; };
 		43E8CD2225A30CC00085CD51 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8CD2025A2FF3B0085CD51 /* LinkedList.swift */; };
-		43E8CD2425A30E620085CD51 /* AbstractLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8CD2325A30E620085CD51 /* AbstractLinkedList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,18 +38,25 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		43788A5025A84DE400848713 /* SingleLinkedListTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SingleLinkedListTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		43788A5225A84DE400848713 /* SingleLinkedListTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLinkedListTest.swift; sourceTree = "<group>"; };
+		43788A5425A84DE400848713 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43AF202D259EF19F00653BD9 /* DynamicArray */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DynamicArray; sourceTree = BUILT_PRODUCTS_DIR; };
 		43AF2030259EF19F00653BD9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		43AF2039259EF1CE00653BD9 /* DynamicArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicArray.swift; sourceTree = "<group>"; };
 		43E8CD1325A2F01A0085CD51 /* DynamicArrayTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynamicArrayTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E8CD1525A2F01A0085CD51 /* DynamicArrayTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicArrayTest.swift; sourceTree = "<group>"; };
 		43E8CD1725A2F01A0085CD51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		43E8CD1E25A2FD2B0085CD51 /* SingleLinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLinkedList.swift; sourceTree = "<group>"; };
 		43E8CD2025A2FF3B0085CD51 /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
-		43E8CD2325A30E620085CD51 /* AbstractLinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractLinkedList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		43788A4D25A84DE400848713 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		43AF202A259EF19F00653BD9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -69,11 +74,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		43788A5125A84DE400848713 /* SingleLinkedListTest */ = {
+			isa = PBXGroup;
+			children = (
+				43788A5225A84DE400848713 /* SingleLinkedListTest.swift */,
+				43788A5425A84DE400848713 /* Info.plist */,
+			);
+			path = SingleLinkedListTest;
+			sourceTree = "<group>";
+		};
 		43AF2024259EF19F00653BD9 = {
 			isa = PBXGroup;
 			children = (
 				43AF202F259EF19F00653BD9 /* DynamicArray */,
 				43E8CD1425A2F01A0085CD51 /* DynamicArrayTest */,
+				43788A5125A84DE400848713 /* SingleLinkedListTest */,
 				43AF202E259EF19F00653BD9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -83,6 +98,7 @@
 			children = (
 				43AF202D259EF19F00653BD9 /* DynamicArray */,
 				43E8CD1325A2F01A0085CD51 /* DynamicArrayTest.xctest */,
+				43788A5025A84DE400848713 /* SingleLinkedListTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,9 +108,6 @@
 			children = (
 				43AF2030259EF19F00653BD9 /* main.swift */,
 				43E8CD2025A2FF3B0085CD51 /* LinkedList.swift */,
-				43E8CD2325A30E620085CD51 /* AbstractLinkedList.swift */,
-				43AF2039259EF1CE00653BD9 /* DynamicArray.swift */,
-				43E8CD1E25A2FD2B0085CD51 /* SingleLinkedList.swift */,
 				43E8CD0E25A2EF9D0085CD51 /* DynamicArrayTest */,
 			);
 			path = DynamicArray;
@@ -119,6 +132,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		43788A4F25A84DE400848713 /* SingleLinkedListTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43788A5525A84DE400848713 /* Build configuration list for PBXNativeTarget "SingleLinkedListTest" */;
+			buildPhases = (
+				43788A4C25A84DE400848713 /* Sources */,
+				43788A4D25A84DE400848713 /* Frameworks */,
+				43788A4E25A84DE400848713 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SingleLinkedListTest;
+			productName = SingleLinkedListTest;
+			productReference = 43788A5025A84DE400848713 /* SingleLinkedListTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		43AF202C259EF19F00653BD9 /* DynamicArray */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 43AF2034259EF19F00653BD9 /* Build configuration list for PBXNativeTarget "DynamicArray" */;
@@ -163,6 +193,9 @@
 				LastSwiftUpdateCheck = 1170;
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
+					43788A4F25A84DE400848713 = {
+						CreatedOnToolsVersion = 11.7;
+					};
 					43AF202C259EF19F00653BD9 = {
 						CreatedOnToolsVersion = 12.2;
 					};
@@ -186,11 +219,19 @@
 			targets = (
 				43AF202C259EF19F00653BD9 /* DynamicArray */,
 				43E8CD1225A2F01A0085CD51 /* DynamicArrayTest */,
+				43788A4F25A84DE400848713 /* SingleLinkedListTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		43788A4E25A84DE400848713 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		43E8CD1125A2F01A0085CD51 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -201,15 +242,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		43788A4C25A84DE400848713 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43788A5825A84DFC00848713 /* LinkedList.swift in Sources */,
+				43788A5325A84DE400848713 /* SingleLinkedListTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		43AF2029259EF19F00653BD9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				43AF2031259EF19F00653BD9 /* main.swift in Sources */,
-				43E8CD1F25A2FD2B0085CD51 /* SingleLinkedList.swift in Sources */,
-				43E8CD2425A30E620085CD51 /* AbstractLinkedList.swift in Sources */,
 				43E8CD2125A2FF3B0085CD51 /* LinkedList.swift in Sources */,
-				43AF203A259EF1CE00653BD9 /* DynamicArray.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +266,6 @@
 			files = (
 				43E8CD2225A30CC00085CD51 /* LinkedList.swift in Sources */,
 				43E8CD1625A2F01A0085CD51 /* DynamicArrayTest.swift in Sources */,
-				43E8CD1D25A2F3220085CD51 /* DynamicArray.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +280,42 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		43788A5625A84DE400848713 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4SS995RRJ7;
+				INFOPLIST_FILE = SingleLinkedListTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.seeyon.SingleLinkedListTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		43788A5725A84DE400848713 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4SS995RRJ7;
+				INFOPLIST_FILE = SingleLinkedListTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.seeyon.SingleLinkedListTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		43AF2032259EF19F00653BD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -410,6 +492,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		43788A5525A84DE400848713 /* Build configuration list for PBXNativeTarget "SingleLinkedListTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43788A5625A84DE400848713 /* Debug */,
+				43788A5725A84DE400848713 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		43AF2028259EF19F00653BD9 /* Build configuration list for PBXProject "DynamicArray" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

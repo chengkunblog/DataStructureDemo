@@ -234,3 +234,107 @@ extension DynamicArray: CustomStringConvertible {
     }
 }
 
+class SingleLinkedList<Element: Equatable>: AbstractLinkedList<Element> {
+    private class Node {
+        var element:Element?
+        var next:Node?
+        
+        init(element:Element? = nil,next:Node? = nil) {
+            self.element = element
+            self.next = next
+        }
+    }
+    
+    private var first:Node?
+    
+    override func addElement(at index: Int, element: Element?) {
+        guard cheackAddInBounds(at: index) else {
+            fatalError("size = \(size),index = \(index),越界访问")
+        }
+        
+        guard var preNode = first else {
+            first = Node(element: element, next: nil)
+            size += 1
+            return
+        }
+
+        if index > 0 {
+            preNode = getNode(at: index - 1)
+        }
+        let node = preNode.next
+        let newNode = Node(element: element, next: node)
+        preNode.next = newNode
+        size += 1
+    }
+    
+    override func getElement(at index: Int) -> Element? {
+        return getNode(at: index).element;
+    }
+    
+    override func setElement(at index: Int, element: Element?) {
+        guard cheackInBounds(at: index) else {
+            fatalError("size = \(size),index = \(index),越界访问")
+        }
+        
+       
+    }
+    
+    override func remove(at index: Int) -> Element? {
+        guard cheackInBounds(at: index) else {
+            fatalError("size = \(size),index = \(index),越界访问")
+        }
+        
+        
+        
+        return nil
+    }
+    
+    override func index(of element: Element) -> Int {
+        for index in (0..<size) {
+           
+        }
+        
+        return Self.notFound
+    }
+    
+    override func clear() {
+        for index in 0..<size {
+           
+        }
+        size = 0
+    }
+    
+    private func getNode(at index: Int) -> Node {
+        guard cheackInBounds(at: index) else {
+            fatalError("size = \(size),index = \(index),越界访问")
+        }
+        
+        var node = self.first
+        for _ in 1..<size {
+            node = node?.next
+        }
+        return node!
+    }
+}
+
+extension SingleLinkedList:CustomStringConvertible {
+    var description: String {
+        var string = "SingleLinkedList["
+        guard size > 0 else {
+            return string + "]"
+        }
+        
+        var node = first
+        while node != nil {
+            if let element = node?.element {
+                string = string + "\(element)" + "->"
+            } else {
+                string = string + "nil" + "->"
+            }
+            node = node!.next
+        }
+        
+        string += "]"
+        return string
+    }
+}
