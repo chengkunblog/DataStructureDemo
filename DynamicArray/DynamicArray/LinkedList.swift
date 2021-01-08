@@ -281,23 +281,31 @@ class SingleLinkedList<Element: Equatable>: AbstractLinkedList<Element> {
             fatalError("size = \(size),index = \(index),越界访问")
         }
         
-        
-        
-        return nil
+        var oldNode = first!
+        if index == 0 {
+            first = oldNode.next
+        } else {
+            let  preNode = getNode(at:index - 1)
+            oldNode = preNode.next!
+            preNode.next = oldNode.next
+        }
+    
+        size -= 1
+        return oldNode.element
     }
     
     override func index(of element: Element) -> Int {
         for index in (0..<size) {
-           
+            if self[index] == element {
+                return index
+            }
         }
         
         return Self.notFound
     }
     
     override func clear() {
-        for index in 0..<size {
-           
-        }
+        first = nil
         size = 0
     }
     
